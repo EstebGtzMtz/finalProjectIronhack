@@ -4,8 +4,6 @@ import { Box, Flex, FormControl, InputGroup, InputLeftAddon, Input, Icon } from 
 import FormComponent from '../components/FormComponent';
 
 const signUp = () => {
-    // <Box w="100vw" h="100vh" bgImage="url('../images/backgroundAuth.png')" bgPos="center" bgRepeat="no-repeat">
-    //         </Box>
     return (
         <MyContext.Consumer>
       {context => (
