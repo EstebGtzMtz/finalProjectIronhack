@@ -14,6 +14,7 @@ const AdminTestExam = () => {
         context
           .handleTestExamSubmit(e)
           .then(res => {
+              context.handleGetTestExamQuestions().then().catch();
             toast({
                 title: "Question created",
                 description: "Everything it's ok",
@@ -90,7 +91,8 @@ const AdminTestExam = () => {
                     </Flex>
                     <NavbarComponent/>
                 </Box>
-            )}
+            )
+            }
         </MyContext.Consumer>
     )
 }

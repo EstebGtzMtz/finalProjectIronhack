@@ -12,3 +12,8 @@ exports.TestQuestionsForm = async(req, res) => {
     await TestQuestions.create(data);
     res.json({ ok: true, data });
 }
+
+exports.TestQuestionsGet = async(req, res) => {
+    const getQuestionsTestExam = await TestQuestions.find();
+    res.json({ ok: true, getQuestionsTestExam });
+}

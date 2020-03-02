@@ -10,6 +10,10 @@ const MY_SERVICE = axios.create({
 const ADMIN_SERVICE = {
     exam: async data => {
         return await MY_SERVICE.post('/profile/adminDashboard/testExam', data);
+    },
+    getTestExamQuestion: async() => {
+        const { data } = await MY_SERVICE.get('/profile/adminDashboard/testExam');
+        return data;
     }
 }
 

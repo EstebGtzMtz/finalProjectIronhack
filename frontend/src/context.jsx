@@ -3,6 +3,7 @@ import {withRouter} from 'react-router-dom';
 import AUTH_SERVICE from './services/auth';
 import ADMIN_SERVICE from './services/adminDashboard'
 
+
 export const MyContext = createContext();
 
 class MyProvider extends Component {
@@ -26,7 +27,8 @@ class MyProvider extends Component {
           TestAnswer4:''
         },
         isLoggedIn: false,
-        loggedUser:{}
+        loggedUser:{},
+        testQuestions:null
     }
 
     handleSignupInput = e => {
@@ -73,7 +75,14 @@ class MyProvider extends Component {
         e.preventDefault()
         const data = this.state.formTestExam
         this.setState({formTestExam: {TestQuestion:'',TestAnswer1: '', TestAnswer2: '', TestAnswer3: '', TestAnswer4:''}})
-        return await ADMIN_SERVICE.exam(data)
+        return await ADMIN_SERVICE.exam(data);
+      }
+
+
+      handleGetTestExamQuestions = async e =>{
+        const {getQuestionsTestExam} = await ADMIN_SERVICE.getTestExamQuestion();
+        this.setState({testQuestions:  getQuestionsTestExam})
+        console.log(this.state.testQuestions)
       }
 
       handleLoginSubmit = e => {
@@ -106,7 +115,8 @@ class MyProvider extends Component {
           handleLoginInput,
           handleLoginSubmit,
           handleTestExamInput,
-          handleTestExamSubmit
+          handleTestExamSubmit,
+          handleGetTestExamQuestions
         } = this;
         return (
             <MyContext.Provider 
@@ -117,7 +127,8 @@ class MyProvider extends Component {
               handleLoginInput,
               handleLoginSubmit,
               handleTestExamInput,
-              handleTestExamSubmit
+              handleTestExamSubmit,
+              handleGetTestExamQuestions
             }}
             >
                 {this.props.children}
