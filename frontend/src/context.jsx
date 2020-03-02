@@ -28,7 +28,7 @@ class MyProvider extends Component {
         },
         isLoggedIn: false,
         loggedUser:{},
-        testQuestions:null
+        testQuestions:[]
     }
 
     handleSignupInput = e => {
@@ -82,7 +82,7 @@ class MyProvider extends Component {
       handleGetTestExamQuestions = async e =>{
         const {getQuestionsTestExam} = await ADMIN_SERVICE.getTestExamQuestion();
         this.setState({testQuestions:  getQuestionsTestExam})
-        console.log(this.state.testQuestions)
+        // console.log(this.state.testQuestions)
       }
 
       handleLoginSubmit = e => {

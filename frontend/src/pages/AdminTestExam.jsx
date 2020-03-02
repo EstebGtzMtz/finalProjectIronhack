@@ -4,11 +4,13 @@ import {Box,Input,Flex, FormControl, Textarea, useToast} from '@chakra-ui/core';
 import FormComponent from '../components/FormComponent';
 import  NavbarTopComponent from '../components/NavbarTopComponent';
 import { NavbarComponent } from '../components/NavbarComponent';
+import CardQuestionComponent from '../components/CardQuestionComponent';
 
 
 const AdminTestExam = () => {
     const context = useContext(MyContext);
     const toast = useToast();
+    const {testQuestions} = context.state;
 
     const submit = e => {
         context
@@ -88,6 +90,11 @@ const AdminTestExam = () => {
                                 />
                             </FormControl>
                         </FormComponent>
+                        {testQuestions.map((el, idx) => {
+                            return (
+                                <CardQuestionComponent testQuestion={el} key={idx}/>
+                            )
+                        })}                
                     </Flex>
                     <NavbarComponent/>
                 </Box>

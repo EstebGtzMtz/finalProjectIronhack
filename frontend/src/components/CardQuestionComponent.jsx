@@ -1,9 +1,25 @@
 import React from 'react';
-import {Box} from '@chakra-ui/core';
+import {MyContext} from '../context';
+import { Flex, Box, Text, Badge, Image, RadioGroup, Radio } from '@chakra-ui/core';
 
-const CardQuestionComponent = () => {
+const CardQuestionComponent = ({testQuestion}) => {
+    const [value, setValue] = React.useState("1");
     return (
-        <Box></Box>
+        <MyContext.Consumer>
+            {context =>(
+              <Box mt='50px' w='90vw' boxShadow='md'>
+              <Box>
+                <Text textAlign='center' fontSize='2xl'>{testQuestion.content}</Text>
+              <RadioGroup onChange={e => setValue(e.target.value)} value={value}>
+                <Radio value="1">{testQuestion.optionA}</Radio>
+                <Radio value="2">{testQuestion.optionB}</Radio>
+                <Radio value="3">{testQuestion.optionC}</Radio>
+                <Radio value="4">{testQuestion.optionD}</Radio>
+              </RadioGroup>
+            </Box>
+            </Box>
+            )}
+        </MyContext.Consumer>
     )
 }
 

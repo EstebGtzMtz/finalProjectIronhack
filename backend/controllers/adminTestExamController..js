@@ -14,6 +14,6 @@ exports.TestQuestionsForm = async(req, res) => {
 }
 
 exports.TestQuestionsGet = async(req, res) => {
-    const getQuestionsTestExam = await TestQuestions.find();
+    const getQuestionsTestExam = await TestQuestions.find().sort({ createdAt: -1 });
     res.json({ ok: true, getQuestionsTestExam });
 }
