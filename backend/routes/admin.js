@@ -1,10 +1,9 @@
 const express = require('express');
 const router = express.Router();
+const TestQuestion = require('../models/TestQuestions');
+const { TestQuestionsForm } = require('../controllers/adminTestExamController.');
 
-
-router.get('/adminDashboard', (req, res) => {
-    res.json({ ok: true, msg: ' jala' })
-});
+router.post('/profile/adminDashboard/testExam', TestQuestionsForm);
 
 // router.post('/adminDashboard/:id/createCategory', (req, res)=>{
 //     req

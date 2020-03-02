@@ -18,7 +18,7 @@ const userSchema = new Schema({
     },
     image: {
         type: String,
-        default: 'https://www.bkie.com/dist/assets/images/default-user.png'
+        default: 'https://images.pexels.com/photos/2827374/pexels-photo-2827374.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
     },
     advanced: {
         type: Boolean,

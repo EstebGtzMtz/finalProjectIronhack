@@ -1,5 +1,5 @@
 import React from 'react';
-import {Flex, Heading, Stack} from '@chakra-ui/core';
+import {Flex, Heading} from '@chakra-ui/core';
 import {MyContext} from '../context';
 
 const BoxNumberComponent = () => {

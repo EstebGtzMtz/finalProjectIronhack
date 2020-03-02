@@ -1,7 +1,6 @@
 import React from 'react';
 import {MyContext} from '../context';
 import { Box, Flex, FormControl, InputGroup, InputLeftAddon, Input, Icon } from "@chakra-ui/core";
-// import {Link} from 'react-router-dom';
 import FormComponent from '../components/FormComponent';
 
 const Login = () => {

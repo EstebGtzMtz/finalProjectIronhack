@@ -1,10 +1,12 @@
 import React, { Component, createContext } from 'react';
 import {withRouter} from 'react-router-dom';
 import AUTH_SERVICE from './services/auth';
+import ADMIN_SERVICE from './services/adminDashboard'
 
 export const MyContext = createContext();
 
 class MyProvider extends Component {
+  
 
     state={
         formSignup: {
@@ -15,6 +17,13 @@ class MyProvider extends Component {
         formLogin: {
             email: '',
             password: ''
+        },
+        formTestExam:{
+          TestQuestion:'',
+          TestAnswer1:'',
+          TestAnswer2:'',
+          TestAnswer3:'',
+          TestAnswer4:''
         },
         isLoggedIn: false,
         loggedUser:{}
@@ -42,24 +51,29 @@ class MyProvider extends Component {
         }))
       }
 
-      handleSignupSubmit = e => {
+      handleTestExamInput = e => {
+        const { name, value } = e.target
+        this.setState(prevState => ({
+          ...prevState,
+          formTestExam: {
+            ...prevState.formTestExam,
+            [name]: value
+          }
+        }))
+      }
+
+      handleSignupSubmit = async e => {
         e.preventDefault()
-        const { name, email, password } = this.state.formSignup
-        AUTH_SERVICE.signup({ name, email, password })
-          .then(({ data }) => {
-            this.setState(prevState => ({
-              ...prevState,
-              formSignup: {
-                name: '',
-                email: '',
-                password: ''
-              }
-            }))
-            this.props.history.push('/login')
-          })
-          .catch(() => {
-            console.log('no entro')
-          })
+        const data = this.state.formSignup
+        this.setState({formSignup: {name: '', email: '', password: ''}})
+        return await AUTH_SERVICE.signup(data)
+      }
+
+      handleTestExamSubmit = async e =>{
+        e.preventDefault()
+        const data = this.state.formTestExam
+        this.setState({formTestExam: {TestQuestion:'',TestAnswer1: '', TestAnswer2: '', TestAnswer3: '', TestAnswer4:''}})
+        return await ADMIN_SERVICE.exam(data)
       }
 
       handleLoginSubmit = e => {
@@ -83,11 +97,28 @@ class MyProvider extends Component {
           })
       }
 
+
     render() {
-        const {state, handleSignupInput,handleSignupSubmit, handleLoginInput,handleLoginSubmit} = this;
+        const {
+          state, 
+          handleSignupInput,
+          handleSignupSubmit, 
+          handleLoginInput,
+          handleLoginSubmit,
+          handleTestExamInput,
+          handleTestExamSubmit
+        } = this;
         return (
             <MyContext.Provider 
-            value={{state, handleSignupInput,handleSignupSubmit,handleLoginInput,handleLoginSubmit}}
+            value={{
+              state, 
+              handleSignupInput,
+              handleSignupSubmit,
+              handleLoginInput,
+              handleLoginSubmit,
+              handleTestExamInput,
+              handleTestExamSubmit
+            }}
             >
                 {this.props.children}
             </MyContext.Provider>
