@@ -8,7 +8,11 @@ import News from './pages/News';
 import Exams from './pages/Exams';
 import AdminDashboard from './pages/AdminDashboard';
 import AdminTestExam from './pages/AdminTestExam';
+import AdminBeginnerExam from './pages/AdminBeginnerExam';
+import AdminAdvanceExam from './pages/AdminAdvanceExam';
 
+
+const dummyComponent = () => <h1>hola</h1>
 
 const Router = () => {
     return (
@@ -23,6 +27,8 @@ const Router = () => {
             <Route exact path='/logout'/>
             <Route exact path='/profile/adminDashboard' component={AdminDashboard}/>
             <Route exact path='/profile/adminDashboard/testExam' component={AdminTestExam}/>
+            <Route exact path='/profile/adminDashboard/beginnerExam' component={AdminBeginnerExam}/>
+            <Route exact path='/profile/adminDashboard/advanceExamen' component={dummyComponent}/>
          </Switch>   
         </>
     )

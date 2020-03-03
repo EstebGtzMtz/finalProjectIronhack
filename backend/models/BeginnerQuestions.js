@@ -23,6 +23,8 @@ const beginnerQuestions = new Schema({
     },
     solution: {
         type: String,
+        enum: ['optionA', 'optionB', 'optionC', 'optionD'],
+        default: 'optionA',
         required: true
     },
     correct: {

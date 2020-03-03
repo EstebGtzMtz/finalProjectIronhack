@@ -2,15 +2,15 @@ import React,{useContext} from 'react';
 import { Box, Text, RadioGroup, Radio, Icon, Button, useToast} from '@chakra-ui/core';
 import {MyContext} from '../context';
 
-const CardQuestionComponent = ({testQuestion}) => {
+const CardQuestionBeginnerComponent = ({beginnerQuestion}) => {
   const context = useContext(MyContext);
   const toast = useToast();
 
   const deleteQuestion = e => {
     context
-      .handleDeleteTestExamQuestion(testQuestion._id)
+      .handleDeleteBeginnerExamQuestion(beginnerQuestion._id)
       .then(res => { 
-        context.handleGetTestExamQuestions().then().catch();
+        context.handleGetBeginnerExamQuestions().then().catch();
         toast({
             title: "Question deleted succesfully",
             description: "Everything it's ok",
@@ -36,12 +36,12 @@ const CardQuestionComponent = ({testQuestion}) => {
             {context =>(
               <Box mt='50px' w='90vw' boxShadow='md'>
               <Box>
-                <Text textalign='center' fontSize='2xl'>{testQuestion.content}</Text>
+                <Text textalign='center' fontSize='2xl'>{beginnerQuestion.content}</Text>
               <RadioGroup onChange={e => setValue(e.target.value)} value={value}>
-                <Radio value="1">{testQuestion.optionA}</Radio>
-                <Radio value="2">{testQuestion.optionB}</Radio>
-                <Radio value="3">{testQuestion.optionC}</Radio>
-                <Radio value="4">{testQuestion.optionD}</Radio>
+                <Radio value="1">{beginnerQuestion.optionA}</Radio>
+                <Radio value="2">{beginnerQuestion.optionB}</Radio>
+                <Radio value="3">{beginnerQuestion.optionC}</Radio>
+                <Radio value="4">{beginnerQuestion.optionD}</Radio>
               </RadioGroup>
                 <Button onClick={()=>deleteQuestion()}>
                   <Icon name="warning" size="32px" color="red.500" />
@@ -53,4 +53,4 @@ const CardQuestionComponent = ({testQuestion}) => {
     )
 }
 
-export default CardQuestionComponent
+export default CardQuestionBeginnerComponent;

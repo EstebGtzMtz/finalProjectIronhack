@@ -15,6 +15,11 @@ const AdminDashboard = () => {
                     <Flex w="100vw" h="100%" align="center" justify="center" flexDir="column" pt='100px'>
                         <Link exact to='/profile/adminDashboard/testExam'>
                             <Card customHeight='40vh'/>
+                        </Link>
+                        <Link exact to='/profile/adminDashboard/beginnerExam'>
+                            <Card customHeight='40vh'/>
+                        </Link>
+                        <Link exact to='/profile/adminDashboard/advanceExam'>
                             <Card customHeight='40vh'/>
                         </Link>
                     </Flex>

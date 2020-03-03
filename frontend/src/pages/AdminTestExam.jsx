@@ -1,4 +1,4 @@
-import React,{useContext} from 'react';
+import React,{useContext, useEffect} from 'react';
 import { MyContext } from '../context';
 import {Box,Input,Flex, FormControl, Textarea, useToast} from '@chakra-ui/core';
 import FormComponent from '../components/FormComponent';
@@ -11,7 +11,11 @@ const AdminTestExam = () => {
     const context = useContext(MyContext);
     const toast = useToast();
     const {testQuestions} = context.state;
-
+    
+    useEffect(()=>{
+        context.handleGetTestExamQuestions().then().catch();
+    }, [])
+    
     const submit = e => {
         context
           .handleTestExamSubmit(e)
@@ -36,6 +40,7 @@ const AdminTestExam = () => {
           });
       };
    
+
 
     return (
         <MyContext.Consumer>
