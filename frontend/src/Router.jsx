@@ -10,9 +10,11 @@ import AdminDashboard from './pages/AdminDashboard';
 import AdminTestExam from './pages/AdminTestExam';
 import AdminBeginnerExam from './pages/AdminBeginnerExam';
 import AdminAdvanceExam from './pages/AdminAdvanceExam';
+import AdvanceExam from './pages/AdvanceExam';
+import BeginnerExam from './pages/BeginnerExam';
+import TestExam from './pages/TestExam';
+import SelectFavouriteCategories from './pages/SelectFavouriteCategories';
 
-
-const dummyComponent = () => <h1>hola</h1>
 
 const Router = () => {
     return (
@@ -25,10 +27,14 @@ const Router = () => {
             <Route exact path='/news' component={News} />
             <Route exact path='/exams' component={Exams} />
             <Route exact path='/logout'/>
+            <Route exact path='/exams/advanceExam' component={AdvanceExam}/>
+            <Route exact path='/profile/selectFavouriteCategories' component={SelectFavouriteCategories}/>
+            <Route exact path='/exams/beginnerExam' component={BeginnerExam}/>
+            <Route exact path='/exams/testExam' component={TestExam}/>
             <Route exact path='/profile/adminDashboard' component={AdminDashboard}/>
             <Route exact path='/profile/adminDashboard/testExam' component={AdminTestExam}/>
             <Route exact path='/profile/adminDashboard/beginnerExam' component={AdminBeginnerExam}/>
-            <Route exact path='/profile/adminDashboard/advanceExamen' component={dummyComponent}/>
+            <Route exact path='/profile/adminDashboard/advanceExam' component={AdminAdvanceExam}/>
          </Switch>   
         </>
     )

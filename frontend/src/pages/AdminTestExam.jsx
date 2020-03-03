@@ -94,6 +94,15 @@ const AdminTestExam = () => {
                                     onChange={context.handleTestExamInput}
                                 />
                             </FormControl>
+                            <FormControl >
+                                <Input 
+                                    placeholder='Correct Answer '
+                                    name='TestCorrectAnswer'
+                                    type='text'
+                                    value={context.state.formTestExam.TestCorrectAnswer}
+                                    onChange={context.handleTestExamInput}
+                                />
+                            </FormControl>
                         </FormComponent>
                         {testQuestions.map((el, idx) => {
                             return (

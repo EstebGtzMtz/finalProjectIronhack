@@ -3,13 +3,11 @@ const BeginnerQuestions = require('../models/BeginnerQuestions');
 const AdvancedQuestions = require('../models/AdvancedQuestion');
 
 exports.TestQuestionsForm = async(req, res) => {
-    const { TestQuestion, TestAnswer1, TestAnswer2, TestAnswer3, TestAnswer4 } = req.body;
+    const { TestQuestion, TestAnswer1, TestAnswer2, TestAnswer3, TestAnswer4, TestCorrectAnswer } = req.body;
     const data = {
         content: TestQuestion,
-        optionA: TestAnswer1,
-        optionB: TestAnswer2,
-        optionC: TestAnswer3,
-        optionD: TestAnswer4
+        options: [TestAnswer1, TestAnswer2, TestAnswer3, TestAnswer4],
+        answer: TestCorrectAnswer
     }
     await TestQuestions.create(data);
     res.json({ ok: true, data });
@@ -27,13 +25,11 @@ exports.TestQuestionsDelete = async(req, res) => {
 }
 
 exports.BeginnerQuestionsForm = async(req, res) => {
-    const { BeginnerQuestion, BeginnerAnswer1, BeginnerAnswer2, BeginnerAnswer3, BeginnerAnswer4 } = req.body;
+    const { BeginnerQuestion, BeginnerAnswer1, BeginnerAnswer2, BeginnerAnswer3, BeginnerAnswer4, BeginnerCorrectAnswer } = req.body;
     const data = {
         content: BeginnerQuestion,
-        optionA: BeginnerAnswer1,
-        optionB: BeginnerAnswer2,
-        optionC: BeginnerAnswer3,
-        optionD: BeginnerAnswer4
+        options: [BeginnerAnswer1, BeginnerAnswer2, BeginnerAnswer3, BeginnerAnswer4],
+        answer: BeginnerCorrectAnswer
     }
     await BeginnerQuestions.create(data);
     res.json({ ok: true, data });
@@ -51,15 +47,13 @@ exports.begginerQuestionDelete = async(req, res) => {
 }
 
 exports.AdvanceQuestionForm = async(req, res) => {
-    const { AdvanceQuestion, AdvanceAnswer1, AdvanceAnswer2, AdvanceAnswer3, AdvanceAnswer4 } = req.body;
+    const { AdvanceQuestion, AdvanceAnswer1, AdvanceAnswer2, AdvanceAnswer3, AdvanceAnswer4, AdvanceCorrectAnswer } = req.body;
     const data = {
         content: AdvanceQuestion,
-        optionA: AdvanceAnswer1,
-        optionB: AdvanceAnswer2,
-        optionC: AdvanceAnswer3,
-        optionD: AdvanceAnswer4
+        options: [AdvanceAnswer1, AdvanceAnswer2, AdvanceAnswer3, AdvanceAnswer4],
+        answer: AdvanceCorrectAnswer
     }
-    await AdvanceQuestion.create(data);
+    await AdvancedQuestions.create(data);
     res.json({ ok: true, data });
 }
 

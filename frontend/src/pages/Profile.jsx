@@ -36,6 +36,9 @@ const Profile =({history})=>{
                 <Link exact to='/profile/adminDashboard'>    
                     <Card customHeight='15vh'></Card>
                 </Link>
+                <Link exact to='/profile/selectFavouriteCategories'>    
+                    <Card customHeight='15vh'></Card>
+                </Link>
                 </Flex>
                 <NavbarComponent />
             </Box>

@@ -10,7 +10,7 @@ const {
     AdvanceQuestionForm,
     AdvanceQuestionGet,
     AdvanceQuestionDelete
-} = require('../controllers/adminTestExamController.');
+} = require('../controllers/adminExamsController.');
 
 router.post('/profile/adminDashboard/testExam', TestQuestionsForm);
 

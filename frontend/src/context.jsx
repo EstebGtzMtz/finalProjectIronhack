@@ -1,7 +1,8 @@
 import React, { Component, createContext } from 'react';
 import {withRouter} from 'react-router-dom';
 import AUTH_SERVICE from './services/auth';
-import ADMIN_SERVICE from './services/adminDashboard'
+import ADMIN_SERVICE from './services/adminDashboard';
+import EXAM_SERVICE from './services/updateExams';
 
 
 export const MyContext = createContext();
@@ -24,27 +25,37 @@ class MyProvider extends Component {
           TestAnswer1:'',
           TestAnswer2:'',
           TestAnswer3:'',
-          TestAnswer4:''
+          TestAnswer4:'',
+          TestCorrectAnswer:''
         },
         formBeginnerExam:{
           BeginnerQuestion:'',
           BeginnerAnswer1:'',
           BeginnerAnswer2:'',
           BeginnerAnswer3:'',
-          BeginnerAnswer4:''
+          BeginnerAnswer4:'',
+          BeginnerCorrectAnswer:''
         },
         formAdvanceExam:{
           AdvanceQuestion:'',
           AdvanceAnswer1:'',
           AdvanceAnswer2:'',
           AdvanceAnswer3:'',
-          AdvanceAnswer4:''
+          AdvanceAnswer4:'',
+          AdvanceCorrectAnswer:''
         },
         isLoggedIn: false,
         loggedUser:{},
         testQuestions:[],
         beginnerQuestions:[],
-        advanceQuestions:[]
+        advanceQuestions:[],
+        advanceScore:1,
+        advanceResponses:0,
+        beginnerScore:1,
+        beginnerResponses:0,
+        testScore:1,
+        testResponses:0,
+        favouriteCategories:['otro']
     }
 
     handleSignupInput = e => {
@@ -134,22 +145,22 @@ class MyProvider extends Component {
       handleTestExamSubmit = async e =>{
         e.preventDefault()
         const data = this.state.formTestExam;
-        this.setState({formTestExam: {TestQuestion:'',TestAnswer1: '', TestAnswer2: '', TestAnswer3: '', TestAnswer4:''}})
+        this.setState({formTestExam: {TestQuestion:'',TestAnswer1: '', TestAnswer2: '', TestAnswer3: '', TestAnswer4:'', TestCorrectAnswer:''}})
         return await ADMIN_SERVICE.exam(data);
       }
 
       handleBeginnerExamSubmit = async e =>{
         e.preventDefault()
         const data = this.state.formBeginnerExam;
-        this.setState({formBeginnerExam: {BeginnerQuestion:'',BeginnerAnswer1: '', BeginnerAnswer2: '', BeginnerAnswer3: '', BeginnerAnswer4:''}})
+        this.setState({formBeginnerExam: {BeginnerQuestion:'',BeginnerAnswer1: '', BeginnerAnswer2: '', BeginnerAnswer3: '', BeginnerAnswer4:'', BeginnerCorrectAnswer:''}})
         return await ADMIN_SERVICE.postBeginnerExam(data);
       }
 
       handleAdvanceExamSubmit = async e =>{
         e.preventDefault()
-        const data = this.state.formBeginnerExam;
-        this.setState({formAdvanceExam: {AdvanceQuestion:'',AdvanceAnswer1: '', AdvanceAnswer2: '', AdvanceAnswer3: '', AdvanceAnswer4:''}})
-        return await ADMIN_SERVICE.postBeginnerExam(data);
+        const data = this.state.formAdvanceExam;
+        this.setState({formAdvanceExam: {AdvanceQuestion:'',AdvanceAnswer1: '', AdvanceAnswer2: '', AdvanceAnswer3: '', AdvanceAnswer4:'', AdvanceCorrectAnswer:''}});
+        return await ADMIN_SERVICE.postAdvanceExam(data);
       }
 
       handleGetTestExamQuestions = async e =>{
@@ -179,6 +190,64 @@ class MyProvider extends Component {
         await ADMIN_SERVICE.deleteAdvanceExamQuestion(e);
       }
 
+      computeAnswer = (options, correctAnswer) => {
+        if(options === correctAnswer){
+            this.setState({advanceScore: this.state.advanceScore +1});
+        }
+        this.setState({
+          advanceResponses: this.state.advanceResponses < 11 ? this.state.advanceResponses +1 : 10
+        });
+      }
+
+      computeBeginnerAnswer = (options, correctAnswer) => {
+        if(options === correctAnswer){
+            this.setState({beginnerScore: this.state.beginnerScore +1});
+        }
+        this.setState({
+          beginnerResponses: this.state.beginnerResponses < 11 ? this.state.beginnerResponses +1 : 10
+        });
+      }
+
+      computeTestAnswer = (options, correctAnswer) => {
+        if(options === correctAnswer){
+            this.setState({testScore: this.state.testScore +1});
+        }
+        this.setState({
+          testResponses: this.state.testResponses < 11 ? this.state.testResponses +1 : 10
+        });
+      }
+
+      handleAdvanceScoreInUser = async (id) => {
+        const data = this.state.advanceScore;
+        await EXAM_SERVICE.updateAdvanceExam(id, data);
+      }
+
+      handleBeginnerScoreInUser = async (id) => {
+        const data = this.state.beginnerScore;
+        await EXAM_SERVICE.updateBeginnerExam(id, data);
+      }
+
+      handleTestScoreInUser = async (id) => {
+        const data = this.state.testScore;
+        await EXAM_SERVICE.updateTestExam(id, data);
+      }
+      
+      handleCategoriesInUser = async(id)=>{
+        const data = this.state.favouriteCategories;
+        await EXAM_SERVICE.updateCategories(id, data)
+      }
+    
+      handleAddDeportesCategory = (e) =>{
+        this.setState({favouriteCategories: [...this.state.favouriteCategories, 'deportes']});
+      }  
+     
+      handleAddCulturaSociedadCategory = (e) =>{
+        this.setState({favouriteCategories: [...this.state.favouriteCategories, 'cultura-sociedad']});
+      }
+
+      handleAddMexicoCategory = (e) =>{
+        this.setState({favouriteCategories: [...this.state.favouriteCategories, 'méxico']});
+      }  
 
     render() {
         const {
@@ -198,7 +267,17 @@ class MyProvider extends Component {
           handleAdvanceExamInput,
           handleAdvanceExamSubmit,
           handleGetAdvanceExamQuestions,
-          handleDeleteAdvanceExamQuestion
+          handleDeleteAdvanceExamQuestion,
+          computeAnswer,
+          computeBeginnerAnswer,
+          computeTestAnswer,
+          handleAdvanceScoreInUser,
+          handleBeginnerScoreInUser,
+          handleTestScoreInUser,
+          handleAddDeportesCategory,
+          handleAddCulturaSociedadCategory,
+          handleAddMexicoCategory,
+          handleCategoriesInUser
         } = this;
         return (
             <MyContext.Provider 
@@ -219,7 +298,17 @@ class MyProvider extends Component {
               handleAdvanceExamInput,
               handleAdvanceExamSubmit,
               handleGetAdvanceExamQuestions,
-              handleDeleteAdvanceExamQuestion
+              handleDeleteAdvanceExamQuestion,
+              computeAnswer,
+              computeBeginnerAnswer,
+              computeTestAnswer,
+              handleAdvanceScoreInUser,
+              handleBeginnerScoreInUser,
+              handleTestScoreInUser,
+              handleAddDeportesCategory,
+              handleAddCulturaSociedadCategory,
+              handleAddMexicoCategory,
+              handleCategoriesInUser
             }}
             >
                 {this.props.children}

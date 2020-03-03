@@ -5,29 +5,13 @@ const advancedQuestion = new Schema({
         type: String,
         unique: true
     },
-    optionA: {
-        type: String,
+    options: {
+        type: [String],
         required: true
     },
-    optionB: {
+    answer: {
         type: String,
         required: true
-    },
-    optionC: {
-        type: String,
-        required: true
-    },
-    optionD: {
-        type: String,
-        required: true
-    },
-    solution: {
-        type: String,
-        required: true
-    },
-    correct: {
-        type: Number,
-        default: 0
     }
 }, {
     timestamps: true,

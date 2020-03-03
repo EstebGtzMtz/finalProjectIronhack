@@ -49,7 +49,7 @@ const AdminBeginnerExam = () => {
                         <FormControl isRequired>
                             <Textarea
                                 placeholder='Question'
-                                name='AdvanceQuestion'
+                                name='BeginnerQuestion'
                                 type='text'
                                 value={context.state.formBeginnerExam.BeginnerQuestion}
                                 onChange={context.handleBeginnerExamInput}
@@ -67,7 +67,7 @@ const AdminBeginnerExam = () => {
                         <FormControl isRequired>
                             <Input 
                                 placeholder='Answer 2'
-                                name='AdvanceAnswer2'
+                                name='BeginnerAnswer2'
                                 type='text'
                                 value={context.state.formBeginnerExam.BeginnerAnswer2}
                                 onChange={context.handleBeginnerExamInput}
@@ -76,7 +76,7 @@ const AdminBeginnerExam = () => {
                         <FormControl isRequired>
                             <Input 
                                 placeholder='Answer 3'
-                                name='AdvanceAnswer3'
+                                name='BeginnerAnswer3'
                                 type='text'
                                 value={context.state.formBeginnerExam.BeginnerAnswer3}
                                 onChange={context.handleBeginnerExamInput}
@@ -85,9 +85,18 @@ const AdminBeginnerExam = () => {
                         <FormControl >
                             <Input 
                                 placeholder='Answer 4'
-                                name='AdvanceAnswer4'
+                                name='BeginnerAnswer4'
                                 type='text'
                                 value={context.state.formBeginnerExam.BeginnerAnswer4}
+                                onChange={context.handleBeginnerExamInput}
+                            />
+                        </FormControl>
+                        <FormControl >
+                            <Input 
+                                placeholder='Correct Answer'
+                                name='BeginnerCorrectAnswer'
+                                type='text'
+                                value={context.state.formBeginnerExam.BeginnerCorrectAnswer}
                                 onChange={context.handleBeginnerExamInput}
                             />
                         </FormControl>

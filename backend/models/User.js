@@ -20,9 +20,17 @@ const userSchema = new Schema({
         type: String,
         default: 'https://images.pexels.com/photos/2827374/pexels-photo-2827374.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
     },
+    test: {
+        type: Number,
+        default: 0
+    },
     advanced: {
-        type: Boolean,
-        default: false
+        type: Number,
+        default: 0
+    },
+    beginner: {
+        type: Number,
+        default: 0
     },
     role: {
         type: String,
@@ -30,8 +38,7 @@ const userSchema = new Schema({
         default: 'GUEST'
     },
     categories: {
-        type: [Schema.Types.ObjectId],
-        ref: 'NewsCategories'
+        type: [String]
     }
 }, {
     timestamps: true,
