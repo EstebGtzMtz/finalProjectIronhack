@@ -87,7 +87,8 @@ class MyProvider extends Component {
             this.props.history.push('/profile')
           })
           .catch(() => {
-            alert(':(, chaleee')
+            console.log('something went wrong');
+            this.props.history.push('/login');
           })
       }
 

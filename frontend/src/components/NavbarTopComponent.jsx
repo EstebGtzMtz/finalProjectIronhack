@@ -1,15 +1,16 @@
 import React from 'react';
 import {MyContext} from '../context';
-import {Flex, Heading, Image} from '@chakra-ui/core';
+import {Flex, Heading, Avatar, AvatarBadge} from '@chakra-ui/core';
 
 const NavbarTopComponent = () => {
     return (
        <MyContext.Consumer>
             {context =>(
-                // position='fixed' top='0'
-                <Flex w='100vw' h="10%" align='center' direction='column' position='fixed' top='0' backgroundColor='#FFFF' shadow='2xl'>                   
+                <Flex w='100vw' h="10%" align='center' direction='column' position='fixed' top='0' backgroundColor='#FFFF' shadow='2xl' borderRadius='25px'>                   
                     <Heading as='h3' size='md' textAlign='left'>{context.state.loggedUser.name}</Heading>
-                    <Image rounded="full" size="100px" src={context.state.loggedUser.image} alt={context.state.loggedUser.name}/>
+                    <Avatar size="xl" name={context.state.loggedUser.name} src={context.state.loggedUser.image}>
+                        <AvatarBadge size='1em' bg="green.500" />
+                    </Avatar>
                 </Flex>
             )}
             </MyContext.Consumer>

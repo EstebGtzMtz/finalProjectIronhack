@@ -33,7 +33,7 @@ const CardQuestionAdvanceComponent = ({advanceQuestions}) => {
     return (
         <MyContext.Consumer>
             {context =>(
-              <Box mt='50px' w='90vw' boxShadow='md'>
+              <Box mt='50px' w='90vw' boxShadow='md' borderRadius='25px' backgroundColor='#FFFF'>
               <Box>
                 <Text textalign='center' fontSize='2xl'>{advanceQuestions.content}</Text>
                 <Button onClick={()=>deleteQuestion()}>

@@ -35,7 +35,16 @@ function SignUp ({history}) {
     return (        
     <MyContext.Consumer>
       {context => (
-        <Box w="100vw" h="100vh" bgImage="url('../images/backgroundAuth.png')" bgPos="center" bgRepeat="no-repeat">
+        <Box w="100vw" h="100vh" bgImage="url('https://res.cloudinary.com/dptmtx6uu/image/upload/v1583295325/finalProyectIronhack/backgroundAuth.png')" bgPos="center" bgRepeat="no-repeat">
+             {/* <hr style={{
+                        backgroundColor:"#4CCFD0",
+                        height: "1px"
+                    }}/>
+                        <br/>
+                    <p> Have an acount ?</p>
+                    {
+                        title === 'Login' ? <Link exact to="/signup">Signup</Link> : <Link textAlign="center" exact to="/login">Login</Link>
+                    } */}
             <Flex w="100vw" h="100vh" align="center" justify="center" flexDir="column">
                 <FormComponent submit={submit} title="Signup">
                     <FormControl isRequired>

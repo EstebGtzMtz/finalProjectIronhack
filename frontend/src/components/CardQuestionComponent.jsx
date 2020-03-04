@@ -32,13 +32,13 @@ const CardQuestionComponent = ({testQuestion}) => {
     return (
         <MyContext.Consumer>
             {context =>(
-              <Box mt='50px' w='90vw' boxShadow='md'>
+            <Box mt='50px' w='90vw' boxShadow='2xl' borderRadius='25px' backgroundColor='#FFFF'>
               <Box>
-                <Text textalign='center' fontSize='2xl'>{testQuestion.content}</Text>
+                <Text fontSize='2xl'>{testQuestion.content}</Text>
                 <Button onClick={()=>deleteQuestion()}>
-                  <Icon name="warning" size="32px" color="red.500" />
-                  </Button>
-            </Box>
+                  <Icon name="warning" size="32px" color="red.500"/>
+                </Button>
+             </Box>
             </Box>
             )}
         </MyContext.Consumer>

@@ -14,18 +14,18 @@ const Exams =({history})=> {
             const {isLoggedIn} = context.state;
             if(isLoggedIn===true){
                 return(
-            <Box w="100vw" h='100%' bgImage="url('../images/backgroundNewsAndExam.png')" bgPos="center" bgRepeat="no-repeat">
+            <Box w="100vw" h='100%' bgImage="url('https://res.cloudinary.com/dptmtx6uu/image/upload/v1583295325/finalProyectIronhack/backgroundNewsAndExam.png')" bgPos="center" bgRepeat="no-repeat" pt='80px' pb='13px'>
             <NavbarTopComponent/>
-            <Flex w="100vw" h="100%" flexDir="column" alignItems="center" pt="50px">
-                <Box border='1px' h='50%'>
+            <Flex w="100vw" h="100%" flexDir="column" alignItems="center">
+                <Box h='50%'>
                 <Link exact to='/exams/advanceExam'>
-                    <Card customHeight='50vh'/>
+                    <Card customHeight='25vh' cardBackgroundColor='#76ED42' title='Advance Exam' />
                 </Link>
                 <Link exact to='/exams/beginnerExam'>
-                 <Card customHeight='50vh'></Card>
+                 <Card customHeight='25vh' cardBackgroundColor='#5C42ED' title='Beginner Exam'/>
                 </Link>
                 <Link exact to='/exams/testExam'>
-                 <Card customHeight='50vh'></Card>
+                 <Card customHeight='25vh' cardBackgroundColor='#ED42B9' title='Test Exam'/>
                 </Link>
                 </Box>
             </Flex>

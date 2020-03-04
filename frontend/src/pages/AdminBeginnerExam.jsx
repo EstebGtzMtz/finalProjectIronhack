@@ -42,8 +42,8 @@ const AdminBeginnerExam = () => {
     return (
         <MyContext.Consumer>
         {context=>(
-            <Box w="100vw" h="100%" bgImage="url('../images/backgroundNewsAndExam.png')" bgPos="center" bgRepeat="no-repeat">
-                <Flex w="100vw" h="100%" align="center" justify="center" flexDir="column" marginTop='15vh'>
+            <Box w="100vw" h="100%" bgImage="url('https://res.cloudinary.com/dptmtx6uu/image/upload/v1583295325/finalProyectIronhack/backgroundNewsAndExam.png')" bgPos="center">
+            <Flex w="100vw" h="100%" align="center" justify="center" flexDir="column" paddingTop='100px' paddingBottom='60px'>
                     <NavbarTopComponent/>
                     <FormComponent title='Create Beginner Exam Question' submit={submit}>
                         <FormControl isRequired>
@@ -53,6 +53,7 @@ const AdminBeginnerExam = () => {
                                 type='text'
                                 value={context.state.formBeginnerExam.BeginnerQuestion}
                                 onChange={context.handleBeginnerExamInput}
+                                borderRadius='25px'
                             />
                         </FormControl>
                         <FormControl isRequired>
@@ -62,6 +63,7 @@ const AdminBeginnerExam = () => {
                                 type='text'
                                 value={context.state.formBeginnerExam.BeginnerAnswer1}
                                 onChange={context.handleBeginnerExamInput}
+                                borderRadius='25px'
                             />
                         </FormControl>
                         <FormControl isRequired>
@@ -71,6 +73,7 @@ const AdminBeginnerExam = () => {
                                 type='text'
                                 value={context.state.formBeginnerExam.BeginnerAnswer2}
                                 onChange={context.handleBeginnerExamInput}
+                                borderRadius='25px'
                             />
                         </FormControl>
                         <FormControl isRequired>
@@ -89,6 +92,7 @@ const AdminBeginnerExam = () => {
                                 type='text'
                                 value={context.state.formBeginnerExam.BeginnerAnswer4}
                                 onChange={context.handleBeginnerExamInput}
+                                borderRadius='25px'
                             />
                         </FormControl>
                         <FormControl >
@@ -98,6 +102,7 @@ const AdminBeginnerExam = () => {
                                 type='text'
                                 value={context.state.formBeginnerExam.BeginnerCorrectAnswer}
                                 onChange={context.handleBeginnerExamInput}
+                                borderRadius='25px'
                             />
                         </FormControl>
                     </FormComponent>

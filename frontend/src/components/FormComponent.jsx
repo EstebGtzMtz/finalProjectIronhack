@@ -11,16 +11,7 @@ const FormComponent = ({title, children, submit}) => {
                 <Stack spacing={8} p={8}>
                     <Heading textAlign="left" as="h1">{title}</Heading>
                     {children}
-                    <Button type="submit" backgroundColor="#4ED2D0">{title}</Button> 
-                    <hr style={{
-                        backgroundColor:"#4CCFD0",
-                        height: "1px"
-                    }}/>
-                        <br/>
-                    <p> Have an acount ?</p>
-                    {
-                        title === 'Login' ? <Link exact to="/signup">Signup</Link> : <Link textAlign="center" exact to="/login">Login</Link>
-                    }
+                    <Button type="submit" backgroundColor="#4ED2D0" borderRadius='25px'>{title}</Button> 
                 </Stack>
             </Box>
         )}

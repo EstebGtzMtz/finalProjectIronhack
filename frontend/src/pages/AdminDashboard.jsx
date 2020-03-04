@@ -10,17 +10,17 @@ const AdminDashboard = () => {
     return (
         <MyContext.Consumer>
             {context =>(
-                <Box w="100vw" h="100vh" bgImage="url('../images/backgroundNewsAndExam.png')" bgPos="center" bgRepeat="no-repeat">
+                <Box w="100vw" h="100vh" bgImage="url('https://res.cloudinary.com/dptmtx6uu/image/upload/v1583295325/finalProyectIronhack/backgroundNewsAndExam.png')" bgPos="center" bgRepeat="no-repeat">
                 <NavbarTopComponent/>
-                    <Flex w="100vw" h="100%" align="center" justify="center" flexDir="column" pt='100px'>
+                    <Flex w="100vw" h="100%" align="center" justify="center" flexDir="column" pt='10px'> 
                         <Link exact to='/profile/adminDashboard/testExam'>
-                            <Card customHeight='40vh'/>
+                            <Card customHeight='25vh' cardBackgroundColor='#42ADED' title='Create Test Question'/>
                         </Link>
                         <Link exact to='/profile/adminDashboard/beginnerExam'>
-                            <Card customHeight='40vh'/>
+                            <Card customHeight='25vh' cardBackgroundColor='#6942ED' title='Create Beginner Question'/>
                         </Link>
                         <Link exact to='/profile/adminDashboard/advanceExam'>
-                            <Card customHeight='40vh'/>
+                            <Card customHeight='25vh' cardBackgroundColor='#EA42ED' title='Create Advance Question'/>
                         </Link>
                     </Flex>
                 <NavbarComponent/>

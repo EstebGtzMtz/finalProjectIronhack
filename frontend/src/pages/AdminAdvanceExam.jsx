@@ -42,8 +42,8 @@ const AdminAdvanceExam = () => {
     return (
         <MyContext.Consumer>
         {context=>(
-            <Box w="100vw" h="100%" bgImage="url('../images/backgroundNewsAndExam.png')" bgPos="center" bgRepeat="no-repeat">
-                <Flex w="100vw" h="100%" align="center" justify="center" flexDir="column" marginTop='15vh'>
+            <Box w="100vw" h="100%" bgImage="url('https://res.cloudinary.com/dptmtx6uu/image/upload/v1583295325/finalProyectIronhack/backgroundNewsAndExam.png')" bgPos="center">
+                <Flex w="100vw" h="100%" align="center" justify="center" flexDir="column" paddingTop='100px' paddingBottom='60px'>
                     <NavbarTopComponent/>
                     <FormComponent title='Create Advance Exam Question' submit={submit}>
                         <FormControl isRequired>
@@ -53,6 +53,7 @@ const AdminAdvanceExam = () => {
                                 type='text'
                                 value={context.state.formAdvanceExam.AdvanceQuestion}
                                 onChange={context.handleAdvanceExamInput}
+                                borderRadius='25px'
                             />
                         </FormControl>
                         <FormControl isRequired>
@@ -62,6 +63,7 @@ const AdminAdvanceExam = () => {
                                 type='text'
                                 value={context.state.formAdvanceExam.AdvanceAnswer1}
                                 onChange={context.handleAdvanceExamInput}
+                                borderRadius='25px'
                             />
                         </FormControl>
                         <FormControl isRequired>
@@ -71,6 +73,7 @@ const AdminAdvanceExam = () => {
                                 type='text'
                                 value={context.state.formAdvanceExam.AdvanceAnswer2}
                                 onChange={context.handleAdvanceExamInput}
+                                borderRadius='25px'
                             />
                         </FormControl>
                         <FormControl isRequired>
@@ -80,6 +83,7 @@ const AdminAdvanceExam = () => {
                                 type='text'
                                 value={context.state.formAdvanceExam.AdvanceAnswer3}
                                 onChange={context.handleAdvanceExamInput}
+                                borderRadius='25px'
                             />
                         </FormControl>
                         <FormControl >
@@ -89,6 +93,7 @@ const AdminAdvanceExam = () => {
                                 type='text'
                                 value={context.state.formAdvanceExam.AdvanceAnswer4}
                                 onChange={context.handleAdvanceExamInput}
+                                borderRadius='25px'
                             />
                         </FormControl>
                         <FormControl >
@@ -98,6 +103,7 @@ const AdminAdvanceExam = () => {
                                 type='text'
                                 value={context.state.formAdvanceExam.AdvanceCorrectAnswer}
                                 onChange={context.handleAdvanceExamInput}
+                                borderRadius='25px'
                             />
                         </FormControl>
                     </FormComponent>

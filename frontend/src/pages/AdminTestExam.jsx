@@ -45,8 +45,8 @@ const AdminTestExam = () => {
     return (
         <MyContext.Consumer>
             {context=>(
-                <Box w="100vw" h="100%" bgImage="url('../images/backgroundNewsAndExam.png')" bgPos="center" bgRepeat="no-repeat">
-                    <Flex w="100vw" h="100%" align="center" justify="center" flexDir="column" marginTop='15vh'>
+                <Box w="100vw" h="100%" bgImage="url('https://res.cloudinary.com/dptmtx6uu/image/upload/v1583295325/finalProyectIronhack/backgroundNewsAndExam.png')" bgPos="center">
+                    <Flex w="100vw" h="100%" align="center" justify="center" flexDir="column" paddingTop='100px' paddingBottom='60px'>
                         <NavbarTopComponent/>
                         <FormComponent title='Create Test Exam Question' submit={submit}>
                             <FormControl isRequired>
@@ -55,7 +55,8 @@ const AdminTestExam = () => {
                                     name='TestQuestion'
                                     type='text'
                                     value={context.state.formTestExam.TestQuestion}
-                                    onChange={context.handleTestExamInput}
+                                    onChange={context.handleTestExamInput} 
+                                    borderRadius='25px'
                                 />
                             </FormControl>
                             <FormControl isRequired>
@@ -65,6 +66,7 @@ const AdminTestExam = () => {
                                     type='text'
                                     value={context.state.formTestExam.TestAnswer1}
                                     onChange={context.handleTestExamInput}
+                                    borderRadius='25px'
                                 />
                             </FormControl>
                             <FormControl isRequired>
@@ -74,6 +76,7 @@ const AdminTestExam = () => {
                                     type='text'
                                     value={context.state.formTestExam.TestAnswer2}
                                     onChange={context.handleTestExamInput}
+                                    borderRadius='25px'
                                 />
                             </FormControl>
                             <FormControl isRequired>
@@ -83,6 +86,7 @@ const AdminTestExam = () => {
                                     type='text'
                                     value={context.state.formTestExam.TestAnswer3}
                                     onChange={context.handleTestExamInput}
+                                    borderRadius='25px'
                                 />
                             </FormControl>
                             <FormControl >
@@ -92,6 +96,7 @@ const AdminTestExam = () => {
                                     type='text'
                                     value={context.state.formTestExam.TestAnswer4}
                                     onChange={context.handleTestExamInput}
+                                    borderRadius='25px'
                                 />
                             </FormControl>
                             <FormControl >
@@ -101,6 +106,7 @@ const AdminTestExam = () => {
                                     type='text'
                                     value={context.state.formTestExam.TestCorrectAnswer}
                                     onChange={context.handleTestExamInput}
+                                    borderRadius='25px'
                                 />
                             </FormControl>
                         </FormComponent>

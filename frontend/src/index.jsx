@@ -28,4 +28,4 @@ function WithContext() {
 
 ReactDOM.render(<WithContext />, document.getElementById('root'))
 
-serviceWorker.unregister()
+serviceWorker.register()

@@ -5,7 +5,7 @@ const BoxQuestionComponent = ({content, options, selected}) => {
     const [answer, setAnswer] = useState(options);
 
     return (
-        <Flex mt='50px' w='90vw' h='20vh' boxShadow='md' backgroundColor='#FFFF' borderRadius='md' justifyContent='center' alignContent='center' direction='column'>
+        <Flex mt='20px' w='90vw' h='20vh' boxShadow='md' backgroundColor='#FFFF' borderRadius='md' justifyContent='center' alignContent='center' direction='column' borderRadius='25px'>
             <Box>
                 <Heading as='h4' size='sm' textAlign='center'>
                     {content}
