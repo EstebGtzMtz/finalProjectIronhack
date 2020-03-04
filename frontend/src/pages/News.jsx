@@ -23,14 +23,14 @@ const News = ({history})=>{
         <MyContext.Consumer>
         {context => {
             const {isLoggedIn} = context.state;
-            if(isLoggedIn===true){
+            if(isLoggedIn){
                 return(
             <Box w="100vw" h="100%" bgImage="url('https://res.cloudinary.com/dptmtx6uu/image/upload/v1583295325/finalProyectIronhack/backgroundNewsAndExam.png')" bgPos="center" mt='60px' mb='60px' pb='10px'>
                 <NavbarTopComponent/>
                 <Flex w="100vw" h="100%vh" flexDir="column" alignItems="center" pt="50px" >
                     {newsDataFromAxios.map((el,idx)=>{
                         return(
-                            <CardNews category={el.category} date={el.date} publication={el.publication} title={el.title} key={idx}></CardNews>
+                            <CardNews category={el.category} date={el.date} publication={el.publication} title={el.title} articleText={el.articleText} key={idx} originalURL={el.url}></CardNews>
                         )
                     })}
                 </Flex>

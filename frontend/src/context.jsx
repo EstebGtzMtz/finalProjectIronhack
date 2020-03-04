@@ -9,7 +9,6 @@ export const MyContext = createContext();
 
 class MyProvider extends Component {
   
-
     state={
         formSignup: {
             name: '',
@@ -45,6 +44,7 @@ class MyProvider extends Component {
           AdvanceCorrectAnswer:''
         },
         isLoggedIn: false,
+        isAdmin: false,
         loggedUser:{},
         testQuestions:[],
         beginnerQuestions:[],
@@ -75,6 +75,9 @@ class MyProvider extends Component {
         const { email, password } = this.state.formLogin
         AUTH_SERVICE.login({ email, password })
           .then(({ data }) => {
+            if(data.user.role === 'ADMIN'){
+              this.setState({isAdmin: true})
+            }
             this.setState(prevState => ({
               ...prevState,
               formLogin: {
@@ -84,6 +87,7 @@ class MyProvider extends Component {
               loggedUser: data.user,
               isLoggedIn: true
             }))
+            console.log(this.state.isAdmin)
             this.props.history.push('/profile')
           })
           .catch(() => {

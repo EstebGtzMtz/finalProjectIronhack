@@ -7,7 +7,7 @@ import { NavbarComponent } from '../components/NavbarComponent';
 import CardQuestionComponent from '../components/CardQuestionComponent';
 
 
-const AdminTestExam = () => {
+const AdminTestExam = ({history}) => {
     const context = useContext(MyContext);
     const toast = useToast();
     const {testQuestions} = context.state;
@@ -44,7 +44,10 @@ const AdminTestExam = () => {
 
     return (
         <MyContext.Consumer>
-            {context=>(
+            {context=>{
+                const {isLoggedIn, isAdmin} = context.state;
+                if(isLoggedIn && isAdmin){
+                return(
                 <Box w="100vw" h="100%" bgImage="url('https://res.cloudinary.com/dptmtx6uu/image/upload/v1583295325/finalProyectIronhack/backgroundNewsAndExam.png')" bgPos="center">
                     <Flex w="100vw" h="100%" align="center" justify="center" flexDir="column" paddingTop='100px' paddingBottom='60px'>
                         <NavbarTopComponent/>
@@ -118,8 +121,11 @@ const AdminTestExam = () => {
                     </Flex>
                     <NavbarComponent/>
                 </Box>
-            )
-            }
+                )
+            }else{
+                history.push('/profile');
+            }}
+        }
         </MyContext.Consumer>
     )
 }

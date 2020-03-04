@@ -6,10 +6,13 @@ import NavbarTopComponent from '../components/NavbarTopComponent';
 import { NavbarComponent } from '../components/NavbarComponent';
 import Card from '../components/Card';
 
-const AdminDashboard = () => {
+const AdminDashboard = ({history}) => {
     return (
         <MyContext.Consumer>
-            {context =>(
+            {context =>{
+                const {isLoggedIn, isAdmin} = context.state;
+                if(isLoggedIn && isAdmin){
+                return(
                 <Box w="100vw" h="100vh" bgImage="url('https://res.cloudinary.com/dptmtx6uu/image/upload/v1583295325/finalProyectIronhack/backgroundNewsAndExam.png')" bgPos="center" bgRepeat="no-repeat">
                 <NavbarTopComponent/>
                     <Flex w="100vw" h="100%" align="center" justify="center" flexDir="column" pt='10px'> 
@@ -25,7 +28,9 @@ const AdminDashboard = () => {
                     </Flex>
                 <NavbarComponent/>
                 </Box>
-            )}
+                )
+                }}
+            }
         </MyContext.Consumer>
     )
 }

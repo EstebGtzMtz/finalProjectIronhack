@@ -12,7 +12,7 @@ const Exams =({history})=> {
         <MyContext.Consumer>
         {context => {
             const {isLoggedIn} = context.state;
-            if(isLoggedIn===true){
+            if(isLoggedIn){
                 return(
             <Box w="100vw" h='100%' bgImage="url('https://res.cloudinary.com/dptmtx6uu/image/upload/v1583295325/finalProyectIronhack/backgroundNewsAndExam.png')" bgPos="center" bgRepeat="no-repeat" pt='80px' pb='13px'>
             <NavbarTopComponent/>

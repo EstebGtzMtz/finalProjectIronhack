@@ -11,8 +11,8 @@ const Profile =({history})=>{
     return (
         <MyContext.Consumer>
             {context => {
-                const {isLoggedIn} = context.state;
-                if(isLoggedIn===true){
+                const {isLoggedIn, isAdmin} = context.state;
+                if(isLoggedIn){
                 return(
                 <Box w="100vw" h="100%" bgImage="url('https://res.cloudinary.com/dptmtx6uu/image/upload/v1583295325/finalProyectIronhack/backgroundProfile.png')" bgPos="center" bgRepeat="no-repeat">
                     <Flex w="100vw" h="100vh" flexDir="column" alignItems="center" pt="50px" >
@@ -33,9 +33,11 @@ const Profile =({history})=>{
                             </Flex>
                         </Flex>
                     </Flex>
-                <Link exact to='/profile/adminDashboard'>    
-                    <Card customHeight='15vh' cardBackgroundColor='#42ADED' title='Admin Dashboard'></Card>
-                </Link>
+                    {isAdmin &&                     
+                        <Link exact to='/profile/adminDashboard'>    
+                            <Card customHeight='15vh' cardBackgroundColor='#42ADED' title='Admin Dashboard'></Card>
+                        </Link>
+                    }
                 <Link exact to='/profile/selectFavouriteCategories'>    
                     <Card customHeight='15vh' cardBackgroundColor='#7BEEF2' title='Add Favourite Categories'></Card>
                 </Link>
