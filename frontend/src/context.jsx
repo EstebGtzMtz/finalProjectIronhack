@@ -258,6 +258,36 @@ class MyProvider extends Component {
       handleAddMundoCategory = (e) =>{
         this.setState({favouriteCategories: [...this.state.favouriteCategories, 'mundo']});
       }  
+      
+      handleAddEconomiaCategory = (e) =>{
+        this.setState({favouriteCategories: [...this.state.favouriteCategories, 'economía']});
+      
+      }  
+
+      handleAddChismeCategory = (e) =>{
+        this.setState({favouriteCategories: [...this.state.favouriteCategories, 'chisme']});
+      }
+
+      handleAddNegocioCategory = (e) =>{
+        this.setState({favouriteCategories: [...this.state.favouriteCategories, 'negocio']});
+      }
+
+      handleAddTecnologiaCategory = (e) =>{
+        this.setState({favouriteCategories: [...this.state.favouriteCategories, 'tecnología']});
+      
+      }  
+
+      handleAddOpinionCategory = (e) =>{
+        this.setState({favouriteCategories: [...this.state.favouriteCategories, 'opinión']});
+      }
+
+      handleAddViajesCategory = (e) =>{
+        this.setState({favouriteCategories: [...this.state.favouriteCategories, 'viajes']});
+      }
+
+      handleAddModaCategory = (e) =>{
+        this.setState({favouriteCategories: [...this.state.favouriteCategories, 'moda']});
+      }  
 
       hadleGetNewsAndSetState = (data)=>{
         this.setState({
@@ -296,7 +326,14 @@ class MyProvider extends Component {
           handleCategoriesInUser,
           handleAddPoliticaCategory,
           handleAddMundoCategory,
-          hadleGetNewsAndSetState
+          hadleGetNewsAndSetState,
+          handleAddEconomiaCategory,
+          handleAddChismeCategory,
+          handleAddNegocioCategory,
+          handleAddTecnologiaCategory,
+          handleAddOpinionCategory,
+          handleAddViajesCategory,
+          handleAddModaCategory
         } = this;
         return (
             <MyContext.Provider 
@@ -330,7 +367,14 @@ class MyProvider extends Component {
               handleCategoriesInUser,
               handleAddPoliticaCategory,
               handleAddMundoCategory,
-              hadleGetNewsAndSetState
+              hadleGetNewsAndSetState,
+              handleAddEconomiaCategory,
+              handleAddChismeCategory,
+              handleAddNegocioCategory,
+              handleAddTecnologiaCategory,
+              handleAddOpinionCategory,
+              handleAddViajesCategory,
+              handleAddModaCategory
             }}
             >
                 {this.props.children}
