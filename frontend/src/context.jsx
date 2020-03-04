@@ -55,7 +55,8 @@ class MyProvider extends Component {
         beginnerResponses:0,
         testScore:1,
         testResponses:0,
-        favouriteCategories:['otro']
+        favouriteCategories:['otro'],
+        newsDataFromAxios:[]
     }
 
     handleSignupInput = e => {
@@ -249,6 +250,20 @@ class MyProvider extends Component {
         this.setState({favouriteCategories: [...this.state.favouriteCategories, 'méxico']});
       }  
 
+      handleAddPoliticaCategory = (e) =>{
+        this.setState({favouriteCategories: [...this.state.favouriteCategories, 'política']});
+      }  
+
+      handleAddMundoCategory = (e) =>{
+        this.setState({favouriteCategories: [...this.state.favouriteCategories, 'mundo']});
+      }  
+
+      hadleGetNewsAndSetState = (data)=>{
+        this.setState({
+          newsDataFromAxios: data
+        })
+      }
+
     render() {
         const {
           state, 
@@ -277,7 +292,10 @@ class MyProvider extends Component {
           handleAddDeportesCategory,
           handleAddCulturaSociedadCategory,
           handleAddMexicoCategory,
-          handleCategoriesInUser
+          handleCategoriesInUser,
+          handleAddPoliticaCategory,
+          handleAddMundoCategory,
+          hadleGetNewsAndSetState
         } = this;
         return (
             <MyContext.Provider 
@@ -308,7 +326,10 @@ class MyProvider extends Component {
               handleAddDeportesCategory,
               handleAddCulturaSociedadCategory,
               handleAddMexicoCategory,
-              handleCategoriesInUser
+              handleCategoriesInUser,
+              handleAddPoliticaCategory,
+              handleAddMundoCategory,
+              hadleGetNewsAndSetState
             }}
             >
                 {this.props.children}

@@ -15,6 +15,8 @@ const SelectFavouriteCategories = () => {
                     <CategoryCard funcion={context.handleAddDeportesCategory}/>
                     <CategoryCard funcion={context.handleAddCulturaSociedadCategory}/>
                     <CategoryCard funcion={context.handleAddMexicoCategory}/>
+                    <CategoryCard funcion={context.handleAddPoliticaCategory}/>
+                    <CategoryCard funcion={context.handleAddMundoCategory}/>
                     <Button onClick={()=>context.handleCategoriesInUser(context.state.loggedUser._id)}>que onda</Button>
                 </Box>
             )}

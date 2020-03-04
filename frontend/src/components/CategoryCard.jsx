@@ -1,5 +1,5 @@
 import React from 'react';
-import {Image,Text, Flex, Badge, Box} from '@chakra-ui/core';
+import {Image,Box} from '@chakra-ui/core';
 
 const CategoryCard = ({funcion}) => {
     return (
