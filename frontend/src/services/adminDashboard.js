@@ -1,8 +1,6 @@
 import axios from 'axios';
 
-const baseURL = 'http://localhost:3000';
-//https://finalprojectironhackmodule3.herokuapp.com
-
+const baseURL = 'https://finalprojectironhackmodule3.herokuapp.com';
 
 const MY_SERVICE = axios.create({
     baseURL,
