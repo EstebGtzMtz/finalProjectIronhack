@@ -49,11 +49,11 @@ class MyProvider extends Component {
         testQuestions:[],
         beginnerQuestions:[],
         advanceQuestions:[],
-        advanceScore:1,
+        advanceScore:0,
         advanceResponses:0,
-        beginnerScore:1,
+        beginnerScore:0,
         beginnerResponses:0,
-        testScore:1,
+        testScore:0,
         testResponses:0,
         favouriteCategories:['otro'],
         newsDataFromAxios:[]
@@ -201,7 +201,7 @@ class MyProvider extends Component {
             this.setState({advanceScore: this.state.advanceScore +1});
         }
         this.setState({
-          advanceResponses: this.state.advanceResponses < 11 ? this.state.advanceResponses +1 : 10
+          advanceResponses: this.state.advanceResponses < 6 ? this.state.advanceResponses +1 : 5
         });
       }
 
@@ -210,7 +210,7 @@ class MyProvider extends Component {
             this.setState({beginnerScore: this.state.beginnerScore +1});
         }
         this.setState({
-          beginnerResponses: this.state.beginnerResponses < 11 ? this.state.beginnerResponses +1 : 10
+          beginnerResponses: this.state.beginnerResponses < 6 ? this.state.beginnerResponses +1 : 5
         });
       }
 
@@ -219,7 +219,7 @@ class MyProvider extends Component {
             this.setState({testScore: this.state.testScore +1});
         }
         this.setState({
-          testResponses: this.state.testResponses < 11 ? this.state.testResponses +1 : 10
+          testResponses: this.state.testResponses < 6 ? this.state.testResponses +1 : 5
         });
       }
 

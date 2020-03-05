@@ -25,7 +25,7 @@ const AdvanceExam = () => {
                         <BoxQuestionComponent content={content} options={options} key={_id} selected={options => context.computeAnswer(options, answer) }/>
                     ))}
 
-                    {context.state.advanceResponses === 10 ? <SendAdvanceResultsComponent result={advanceScore} /> : null}
+                    {context.state.advanceResponses === 5 ? <SendAdvanceResultsComponent result={advanceScore} /> : null}
                 </Flex>
                 <NavbarComponent/>
             </Flex> 

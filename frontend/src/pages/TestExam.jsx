@@ -22,7 +22,7 @@ const TestExam = () => {
                         <BoxQuestionComponent content={content} options={options} key={_id}  selected={options => context.computeTestAnswer(options, answer) }/>
                     ))}
 
-                    {context.state.testResponses === 10 ? <SendTestResultsComponent result={testScore} /> : null}
+                    {context.state.testResponses === 6 ? <SendTestResultsComponent result={testScore} /> : null}
                 </Flex>
             </Flex> 
            )}

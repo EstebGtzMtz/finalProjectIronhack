@@ -1,7 +1,8 @@
 import React,{useContext} from 'react';
-import { Box, Flex, FormControl, InputGroup, InputLeftAddon, Input, Icon , useToast} from "@chakra-ui/core";
+import { Box, Flex, FormControl, InputGroup, InputLeftAddon, Input, Icon , useToast, Text} from "@chakra-ui/core";
 import {MyContext} from '../context';
 import FormComponent from '../components/FormComponent';
+import {Link} from 'react-router-dom';
 
 function SignUp ({history}) {
   const context = useContext(MyContext);
@@ -36,15 +37,6 @@ function SignUp ({history}) {
     <MyContext.Consumer>
       {context => (
         <Box w="100vw" h="100vh" bgImage="url('https://res.cloudinary.com/dptmtx6uu/image/upload/v1583295325/finalProyectIronhack/backgroundAuth.png')" bgPos="center" bgRepeat="no-repeat">
-             {/* <hr style={{
-                        backgroundColor:"#4CCFD0",
-                        height: "1px"
-                    }}/>
-                        <br/>
-                    <p> Have an acount ?</p>
-                    {
-                        title === 'Login' ? <Link exact to="/signup">Signup</Link> : <Link textAlign="center" exact to="/login">Login</Link>
-                    } */}
             <Flex w="100vw" h="100vh" align="center" justify="center" flexDir="column">
                 <FormComponent submit={submit} title="Signup">
                     <FormControl isRequired>
@@ -84,6 +76,9 @@ function SignUp ({history}) {
                         </InputGroup>
                     </FormControl>
                 </FormComponent>
+                <Link exact to='/login'>
+                <Text variantColor="blue" variant="outline" mr='10px'>Login</Text>
+           </Link>
             </Flex>
         </Box>
       )}

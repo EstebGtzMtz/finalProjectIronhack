@@ -1,6 +1,5 @@
 import React from 'react';
 import {Switch, Route} from 'react-router-dom';
-import Home from './pages/Home';
 import SignUp from './pages/SignUp.jsx'
 import Login from './pages/Login';
 import Profile from './pages/Profile';
@@ -14,13 +13,14 @@ import AdvanceExam from './pages/AdvanceExam';
 import BeginnerExam from './pages/BeginnerExam';
 import TestExam from './pages/TestExam';
 import SelectFavouriteCategories from './pages/SelectFavouriteCategories';
+import LandingPage from './pages/LandingPage';
 
 
 const Router = () => {
     return (
         <>
          <Switch>
-            <Route exact path='/' component={Home} />
+            <Route exact path='/' component={LandingPage} />
             <Route exact path='/signup' component={SignUp} />
             <Route exact path='/login' component={Login} />
             <Route exact path='/profile' component={Profile} />

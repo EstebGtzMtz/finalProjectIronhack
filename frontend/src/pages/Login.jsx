@@ -1,7 +1,8 @@
 import React from 'react';
 import {MyContext} from '../context';
-import { Box, Flex, FormControl, InputGroup, InputLeftAddon, Input, Icon } from "@chakra-ui/core";
+import { Box, Flex, FormControl, InputGroup, InputLeftAddon, Input, Icon,Text } from "@chakra-ui/core";
 import FormComponent from '../components/FormComponent';
+import {Link} from 'react-router-dom';
 
 const Login = () => {
     return (
@@ -35,6 +36,9 @@ const Login = () => {
                         </InputGroup>
                     </FormControl>
                 </FormComponent>
+                <Link exact to='/signup'>
+                <Text variantColor="blue" variant="outline" alignSelf='flex-end'>Signup</Text>
+           </Link>
             </Flex>
         </Box>
       )}

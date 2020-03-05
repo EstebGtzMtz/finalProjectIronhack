@@ -25,7 +25,7 @@ const BeginnerExam = () => {
                         <BoxQuestionComponent content={content} options={options} key={_id}  selected={options => context.computeBeginnerAnswer(options, answer) }/>
                     ))}
 
-                    {context.state.beginnerScore === 10 ? <SendBeginnerResultsComponent result={beginnerScore} /> : null}
+                    {context.state.beginnerScore === 5 ? <SendBeginnerResultsComponent result={beginnerScore} /> : null}
                 </Flex>
                 <NavbarComponent/>
             </Flex> 

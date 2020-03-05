@@ -30,7 +30,7 @@ const News = ({history})=>{
                 <Flex w="100vw" h="100%vh" flexDir="column" alignItems="center" pt="50px" >
                     {newsDataFromAxios.map((el,idx)=>{
                         return(
-                            <CardNews category={el.category} date={el.date} publication={el.publication} title={el.title} articleText={el.articleText} key={idx} originalURL={el.url}></CardNews>
+                            <CardNews category={el.category} date={el.date} publication={el.publication} title={el.title} articleText={el.articleText} key={idx} textLevel={el.level_binary}></CardNews>
                         )
                     })}
                 </Flex>

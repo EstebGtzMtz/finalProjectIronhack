@@ -14,7 +14,9 @@ export const NavbarComponent = () => {
             <NavLink exact to='/exams'>
                 <Icon name="exam" size="50px" />
             </NavLink>
-            <Icon name="exit" size="50px" />
+            <NavLink exact to='/login'>
+                <Icon name="exit" size="50px" />
+            </NavLink>
         </Stack>
     )
 }
