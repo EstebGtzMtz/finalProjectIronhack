@@ -24,6 +24,7 @@ Para mejorar la experiencia en movil , puedes descargar la app en tu accelular d
 o en escritorio presionar 
 Windows/Linux:`Ctrl + Shift + M`
 Mac: `Command+Alt+I`
+La aplicacion esta diseñada para movil
 ![enter image description here](https://res.cloudinary.com/dptmtx6uu/image/upload/v1583428030/finalProyectIronhack/WhatsApp_Image_2020-03-05_at_11.06.52.jpg)
 
 ```javascript
